@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <bean id="triangle" class="com.sanju.spring.Triangle">
+     <property name="pointA" ref="point1"></property>
+     <property name="pointB" ref="point2"></property>
+     <property name="pointC" ref="point3"></property>
+   </bean>
+   
+   <bean id="point1" class="com.sanju.spring.Point">
+     <property name="x" value="${point1.X}"></property>
+     <property name="y" value="${point1.Y}"></property>
+   </bean>
+   
+   <bean id="point2" class="com.sanju.spring.Point">
+     <property name="x" value="${point2.X}"></property>
+     <property name="y" value="${point2.Y}"></property>
+   </bean>
+   
+   <bean id="point3" class="com.sanju.spring.Point">
+     <property name="x" value="${point3.X}"></property>
+     <property name="y" value="${point3.Y}"></property>
+   </bean>
+   
+   <bean id="rectangle" class="com.sanju.spring.Rectangle">
+    <property name="points">
+      <list>
+        <ref bean="point001" />
+        <ref bean="point002" />
+        <ref bean="point003" />
+        <ref bean="point004" />
+      </list>
+    </property>
+  </bean>
+ 
+  <bean id="point001" class="com.sanju.spring.Point">
+    <property name="x" value="${point1.X}"></property>
+    <property name="y" value="${point1.Y}"></property>
+  </bean>
+ 
+  <bean id="point002" class="com.sanju.spring.Point">
+    <property name="x" value="${point2.X}"></property>
+    <property name="y" value="${point2.Y}"></property>
+  </bean>
+ 
+  <bean id="point003" class="com.sanju.spring.Point">
+    <property name="x" value="${point3.X}"></property>
+    <property name="y" value="${point3.Y}"></property>
+  </bean>
+ 
+  <bean id="point004" class="com.sanju.spring.Point">
+    <property name="x" value="${point4.X}"></property>
+    <property name="y" value="${point4.Y}"></property>
+  </bean>
+  
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations" value="graphpoint.properties" />
+  </bean>
+  
+  
+ </beans>
